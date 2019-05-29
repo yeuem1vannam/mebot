@@ -2,10 +2,12 @@
   "name": "botkit-mebot",
   "version": "1.0.0",
   "description": "",
+  "license": "PRIVATE",
   "main": "bot.js",
   "scripts": {
-    "start": "ts-node-dev  --inspect --respawn ./src/bot.ts",
-    "build": "tsc",
+    "start": "ts-node-dev --inspect=0.0.0.0 --respawn ./src/bot.ts",
+    "start:prod": "yarn build && node ./build/bot.js",
+    "build": "yarn rimraf ./build && yarn tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -25,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^1.9.0",
     "@typescript-eslint/parser": "^1.9.0",
     "eslint": "^5.16.0",
+    "rimraf": "^2.6.3",
     "ts-node-dev": "^1.0.0-pre.39",
     "typescript": "^3.4.5"
   }

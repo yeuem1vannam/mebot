@@ -1,4 +1,4 @@
-import * as wit from '../wit'
+import * as wit from '../wit';
 
 const handler: Function = (controller) => {
   /**
@@ -19,9 +19,7 @@ const handler: Function = (controller) => {
     );
   });
 
-  controller.on('message', wit.hears, async (bot, message) => {
-    await bot.reply(message, `Echo: ${message.text}`);
-  });
+  controller.on('message', wit.hears)
 }
 
 export = handler
