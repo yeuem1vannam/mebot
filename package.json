@@ -1,11 +1,12 @@
 {
   "name": "botkit-mebot",
   "version": "1.0.0",
-  "description": "",
-  "license": "PRIVATE",
-  "main": "bot.js",
+  "description": "Chatbot for personal page",
+  "license": "CC-BY-NC-SA-4.0",
+  "main": "build/bot.js",
+  "typing": "build/bot.d.ts",
   "scripts": {
-    "start": "ts-node-dev --inspect=0.0.0.0 --respawn ./src/bot.ts",
+    "start": "ts-node-dev --inspect=0.0.0.0 ./src/bot.ts",
     "start:prod": "yarn build && node ./build/bot.js",
     "build": "yarn rimraf ./build && yarn tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
