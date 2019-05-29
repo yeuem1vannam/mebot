@@ -1,11 +1,6 @@
-/**
- * Copyright (c) Microsoft Corporation. All rights reserved.
- * Licensed under the MIT License.
- */
+import * as wit from '../wit'
 
-const wit = require('../wit');
-
-module.exports = function(controller) {
+const handler: Function = (controller) => {
   /**
    * Detect when a message has a sticker attached
    */
@@ -27,4 +22,6 @@ module.exports = function(controller) {
   controller.on('message', wit.hears, async (bot, message) => {
     await bot.reply(message, `Echo: ${message.text}`);
   });
-};
+}
+
+export = handler

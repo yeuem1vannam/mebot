@@ -4,7 +4,8 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "node --inspect=0.0.0.0 bot.js",
+    "start": "ts-node-dev  --inspect --respawn ./src/bot.ts",
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -18,5 +19,13 @@
   "prettier": {
     "singleQuote": true,
     "trailingComma": "es5"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@typescript-eslint/eslint-plugin": "^1.9.0",
+    "@typescript-eslint/parser": "^1.9.0",
+    "eslint": "^5.16.0",
+    "ts-node-dev": "^1.0.0-pre.39",
+    "typescript": "^3.4.5"
   }
 }
