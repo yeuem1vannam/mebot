@@ -1,0 +1,25 @@
+version: "3.6"
+
+services:
+  mebot:
+    build: .
+    tty: true
+    stdin_open: true
+    working_dir: /workspace
+    container_name: mebot.bot
+    env_file: .env
+    ports:
+      - 3000
+      - 9229
+    volumes:
+      - .:/workspace
+    command: sleep infinity
+
+  ngrok: # Refer https://github.com/wernight/docker-ngrok/issues/1
+    image: wernight/ngrok
+    container_name: mebot.ngrok
+    ports:
+      - 4040:4040
+    environment:
+      NGROK_PORT: mebot:3000
+    env_file: .env
