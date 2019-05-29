@@ -2,6 +2,7 @@ import { Botkit } from 'botkit'
 import './env';
 
 import * as wit from './wit'
+import * as facebookFeatures from './features/facebook_features'
 
 import {
   FacebookAdapter,
@@ -33,9 +34,11 @@ const controller = new Botkit({
 });
 
 controller.middleware.receive.use(wit.receive);
+// controller.middleware.ingest.use(wit.receive)
 
 // Once the bot has booted up its internal services, you can use them to do stuff.
 controller.ready(() => {
   // load traditional developer-created local custom feature modules
-  controller.loadModules(__dirname + '/features');
+  // controller.loadModules(__dirname + '/features');
+  facebookFeatures(controller);
 });
